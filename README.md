@@ -4,7 +4,7 @@
 
 Built for BOOTUP Hackathon by AIDS4LYF.
 
-![Dyslexia profile on a news page](docs/screenshots/2-dyslexia.png)
+![Dyslexia profile on a news page](docs/2-dyslexia.png)
 
 ## The problem
 
@@ -29,15 +29,15 @@ Every setting can also be adjusted on its own (text size, line spacing, letter s
 
 | Before | Focus mode |
 |---|---|
-| ![Original page](docs/screenshots/1-before.png) | ![Focus mode](docs/screenshots/3-focus.png) |
+| ![Original page](docs/1-before.png) | ![Focus mode](docs/3-focus.png) |
 
 | Switch scanning: choose an area | Then choose an item |
 |---|---|
-| ![Scanning groups](docs/screenshots/5-scan-groups.png) | ![Scanning items](docs/screenshots/6-scan-item.png) |
+| ![Scanning groups](docs/5-scan-groups.png) | ![Scanning items](docs/6-scan-item.png) |
 
 | Low vision | Settings panel |
 |---|---|
-| ![Low vision profile](docs/screenshots/4-low-vision.png) | <img src="docs/screenshots/popup.png" alt="Clearway popup" width="300"> |
+| ![Low vision profile](docs/4-low-vision.png) | <img src="docs/popup.png" alt="Clearway popup" width="300"> |
 
 ## Try it (2 minutes)
 
