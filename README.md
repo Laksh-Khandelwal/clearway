@@ -2,7 +2,7 @@
 
 **A Chrome extension that adapts any website to the person using it: easier to read, easier to hear, and usable without a mouse.**
 
-Built for [HACKATHON NAME] by [TEAM NAME].
+Built for BOOTUP Hackathon by AIDS4LYF.
 
 ![Dyslexia profile on a news page](docs/screenshots/2-dyslexia.png)
 
@@ -128,10 +128,10 @@ Clearway sends no data anywhere and has no server, account or analytics. Speech 
 
 ## Team
 
-| Name | Role |
-|---|---|
-| [Name] | [Role] |
-| [Name] | [Role] |
+| Laksh Khandelwal  b26cm1030 |
+| Shaurya Khatri  b26ch1034 |
+| Vaisnavi Saxena  b26cm1087 |
+| Harshit Tomar  b26cm1021 |
 
 ## Credits and licenses
 
