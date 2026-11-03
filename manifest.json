@@ -1,0 +1,87 @@
+{
+  "manifest_version": 3,
+  "name": "Clearway – Accessibility Toolkit",
+  "short_name": "Clearway",
+  "version": "1.1.0",
+  "description": "Make any web page easier to read, hear and navigate: readable fonts and spacing, focus mode, read aloud and switch scanning.",
+  "permissions": [
+    "storage",
+    "tts",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Clearway",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "shared.js",
+        "lib/Readability.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/OpenDyslexic-Regular.woff2",
+        "fonts/OpenDyslexic-Bold.woff2",
+        "fonts/Atkinson-Regular.woff2",
+        "fonts/Atkinson-Bold.woff2"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Open Clearway"
+    },
+    "toggle-focus": {
+      "suggested_key": {
+        "default": "Alt+Shift+F"
+      },
+      "description": "Turn focus mode on or off"
+    },
+    "read-aloud": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "Start or stop reading aloud"
+    },
+    "toggle-scan": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Turn switch scanning on or off"
+    }
+  }
+}

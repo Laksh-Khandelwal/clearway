@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Clearway</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Clearway</h1>
+    <p>Pick a profile or fine-tune below. Changes apply to every page.</p>
+  </header>
+
+  <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+
+  <section aria-labelledby="h-profiles">
+    <h2 id="h-profiles">Profiles</h2>
+    <div class="profiles">
+      <button class="sign" data-profile="dyslexia" aria-pressed="false">
+        <span class="sign-name">Dyslexia</span>
+        <span class="sign-sub">Readable font, spacing, ruler</span>
+      </button>
+      <button class="sign" data-profile="lowVision" aria-pressed="false">
+        <span class="sign-name">Low vision</span>
+        <span class="sign-sub">Bigger text, high contrast</span>
+      </button>
+      <button class="sign" data-profile="focus" aria-pressed="false">
+        <span class="sign-name">Focus</span>
+        <span class="sign-sub">Hide clutter, calm motion</span>
+      </button>
+      <button class="sign" data-profile="motor" aria-pressed="false">
+        <span class="sign-name">One switch</span>
+        <span class="sign-sub">Use the page with one key</span>
+      </button>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-read">
+    <h2 id="h-read">Read aloud</h2>
+    <p class="hint">Reads your selected text, or the main article if nothing is selected.</p>
+    <div class="row-buttons">
+      <button class="btn primary" id="read-start">Read aloud</button>
+      <button class="btn" id="read-pause">Pause</button>
+      <button class="btn" id="read-stop">Stop</button>
+    </div>
+    <div class="slider">
+      <label for="ttsRate">Speed</label>
+      <output id="ttsRate-out" for="ttsRate"></output>
+      <input type="range" id="ttsRate" min="0.6" max="2" step="0.1" data-key="ttsRate">
+    </div>
+  </section>
+
+  <section aria-labelledby="h-display">
+    <h2 id="h-display">Reading and display</h2>
+    <label class="switch"><span><strong>Focus mode</strong><small>Shows only the main content</small></span>
+      <input type="checkbox" role="switch" data-key="focusMode"></label>
+    <label class="switch"><span><strong>Reading ruler</strong><small>Dims the page around your pointer</small></span>
+      <input type="checkbox" role="switch" data-key="ruler"></label>
+    <label class="switch"><span><strong>Underline links</strong><small>Links don’t rely on color alone</small></span>
+      <input type="checkbox" role="switch" data-key="underlineLinks"></label>
+    <label class="switch"><span><strong>Reduce motion</strong><small>Stops animations and autoplay video</small></span>
+      <input type="checkbox" role="switch" data-key="reduceMotion"></label>
+
+    <div class="slider">
+      <label for="textScale">Text size</label>
+      <output id="textScale-out" for="textScale"></output>
+      <input type="range" id="textScale" min="100" max="200" step="10" data-key="textScale">
+    </div>
+    <div class="slider">
+      <label for="lineHeight">Line spacing</label>
+      <output id="lineHeight-out" for="lineHeight"></output>
+      <input type="range" id="lineHeight" min="1" max="2.5" step="0.1" data-key="lineHeight">
+    </div>
+    <div class="slider">
+      <label for="letterSpacing">Letter spacing</label>
+      <output id="letterSpacing-out" for="letterSpacing"></output>
+      <input type="range" id="letterSpacing" min="0" max="0.2" step="0.02" data-key="letterSpacing">
+    </div>
+
+    <fieldset class="themes fonts">
+      <legend>Font</legend>
+      <label class="swatch f-site"><input type="radio" name="font" value="site"><span class="aa">Aa</span><span class="sw-name">Site</span></label>
+      <label class="swatch f-sans"><input type="radio" name="font" value="sans"><span class="aa">Aa</span><span class="sw-name">Verdana</span></label>
+      <label class="swatch f-atkinson"><input type="radio" name="font" value="atkinson"><span class="aa">Aa</span><span class="sw-name">Atkinson</span></label>
+      <label class="swatch f-od"><input type="radio" name="font" value="opendyslexic"><span class="aa">Aa</span><span class="sw-name">OpenDyslexic</span></label>
+    </fieldset>
+    <p class="hint after">Plain sans-serif fonts with extra spacing are what dyslexia guidelines recommend. Some readers still prefer OpenDyslexic, so try both.</p>
+
+    <fieldset class="themes">
+      <legend>Colors</legend>
+      <label class="swatch s-none"><input type="radio" name="theme" value="none"><span class="aa">Aa</span><span class="sw-name">Site</span></label>
+      <label class="swatch s-cream"><input type="radio" name="theme" value="cream"><span class="aa">Aa</span><span class="sw-name">Cream</span></label>
+      <label class="swatch s-dark"><input type="radio" name="theme" value="dark"><span class="aa">Aa</span><span class="sw-name">Dark</span></label>
+      <label class="swatch s-yellow"><input type="radio" name="theme" value="yellow"><span class="aa">Aa</span><span class="sw-name">High contrast</span></label>
+    </fieldset>
+  </section>
+
+  <section aria-labelledby="h-switch">
+    <h2 id="h-switch">Switch access</h2>
+    <label class="switch"><span><strong>Switch scanning</strong><small>Use the page without a mouse, with one or two keys</small></span>
+      <input type="checkbox" role="switch" data-key="scanning"></label>
+    <fieldset class="modes">
+      <legend>How you press</legend>
+      <label class="mode"><input type="radio" name="scanMode" value="auto">
+        <span><strong>One switch</strong><small>The highlight moves by itself. Press Space when it reaches what you want. It picks an area first, then an item.</small></span></label>
+      <label class="mode"><input type="radio" name="scanMode" value="step">
+        <span><strong>Two switches</strong><small>Space moves the highlight, Enter selects. No waiting.</small></span></label>
+    </fieldset>
+    <div class="slider" id="speed-row">
+      <label for="scanSpeed">Scan speed</label>
+      <output id="scanSpeed-out" for="scanSpeed"></output>
+      <input type="range" id="scanSpeed" min="800" max="6000" step="250" data-key="scanSpeed" aria-describedby="speed-hint">
+      <p class="hint range-hint" id="speed-hint"><span>Faster</span><span>Slower</span></p>
+    </div>
+  </section>
+
+  <footer>
+    <button class="btn wide" id="reset">Reset everything</button>
+    <p class="keys">Shortcuts: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd> focus mode, <kbd>R</kbd> read aloud, <kbd>S</kbd> scanning.</p>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
